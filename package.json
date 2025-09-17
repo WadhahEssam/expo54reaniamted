@@ -16,6 +16,7 @@
     "@react-navigation/elements": "^2.6.3",
     "@react-navigation/native": "^7.1.8",
     "expo": "~54.0.8",
+    "expo-build-properties": "~1.0.8",
     "expo-constants": "~18.0.9",
     "expo-dev-client": "~6.0.12",
     "expo-font": "~14.0.8",
@@ -44,5 +45,17 @@
     "eslint": "^9.25.0",
     "eslint-config-expo": "~10.0.0"
   },
-  "private": true
+  "private": true,
+  "reanimated": {
+    "staticFeatureFlags": {
+      "DISABLE_COMMIT_PAUSING_MECHANISM": true,
+      "ANDROID_SYNCHRONOUSLY_UPDATE_UI_PROPS": true,
+      "USE_SYNCHRONIZABLE_FOR_MUTABLES": true
+    }
+  },
+  "worklets": {
+    "staticFeatureFlags": {
+      "IOS_DYNAMIC_FRAMERATE_ENABLED": true
+    }
+  }
 }
