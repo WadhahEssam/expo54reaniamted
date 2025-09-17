@@ -1,7 +1,6 @@
 import { Image } from 'expo-image';
-import { StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 
-import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { useEffect, useState } from 'react';
 import Animated, { useAnimatedStyle, useSharedValue, withRepeat, withTiming } from 'react-native-reanimated';
 
@@ -9,7 +8,8 @@ export default function HomeScreen() {
   const [direction, setDirection] = useState<'left' | 'right'>('left');
 
   return (
-    <ParallaxScrollView
+    <ScrollView
+    contentContainerStyle={{gap: 10}}
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={
         <Image
@@ -169,7 +169,7 @@ export default function HomeScreen() {
       <SomeAnimatedRow direction={direction} />
       <SomeAnimatedRow direction={direction} />
       
-    </ParallaxScrollView>
+    </ScrollView>
   );
 }
 
