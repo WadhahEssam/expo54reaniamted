@@ -1,10 +1,10 @@
 import { ScrollView, StyleSheet, View } from 'react-native';
 
 import { useEffect, useState } from 'react';
-import Animated, { useAnimatedStyle, useSharedValue, withRepeat, withTiming } from 'react-native-reanimated';
+import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 
 export default function HomeScreen() {
-  const [direction, setDirection] = useState<'left' | 'right'>('left');
+  const [direction, setDirection] = useState<'left' | 'right'>(Math.random() > 0.5 ? 'left' : 'right');
 
   return (
     <ScrollView contentContainerStyle={{ gap: 10 }}>
@@ -28,7 +28,7 @@ const SomeAnimatedRow = (direction = 'left') => {
   });
 
   useEffect(() => {
-    rotate.value = withRepeat(withTiming(direction === 'left' ? 25 : -25, { duration: Math.random() * 1000 }), -1, true);
+    rotate.value = direction === 'left' ? 25 : -25;
   }, [direction, rotate]);
   
   
